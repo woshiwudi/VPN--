@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>游侠加速器</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/log_reg.css" type="text/css">
+    <script type="text/javascript" src="lib/jquery-1.11.1.js"></script>
+    <script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
+    <script type="text/javascript" src="lib/jquery.validate.js"></script>
+    <script type="text/javascript" src="lib/messages_zh.js"></script>
+    <script type="text/javascript" src="lib/jquery.md5.js"></script>
+    <script type="text/javascript" src="lib/layer/layer.js"></script>
+    <script type="text/javascript" src="lib/aes.js"></script>
+    <script type="text/javascript" src="js/url.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<!--[if lt IE 9]>
+<div class="hack_tips">当前浏览器版本太低，建议您升级浏览器版本，否则无法正常查看本站内容</div>
+<![endif]-->
+<section class="login_content">
+    <!--<div class="top_tab">
+        <img src="images/logo.png" alt="logo图片">
+        <span>游侠加速器</span>
+        &lt;!&ndash;关闭隐藏盒子开始&ndash;&gt;
+        <div class="hide_close_box index_btn_box clearfix">
+            <div class="hide_btn"><span></span></div>
+            <div class="close_btn"><span></span></div>
+        </div>
+        &lt;!&ndash;关闭隐藏盒子结束&ndash;&gt;
+    </div>-->
+    <!--关闭隐藏盒子开始-->
+    <div class="hide_close_box index_btn_box clearfix">
+       <!-- <div class="hide_btn"><span></span></div>-->
+        <div class="close_btn"><span></span></div>
+    </div>
+    <!--关闭隐藏盒子结束-->
+    <form id="form_validation" class="login_register_box">
+
+    </form>
+</section>
+<!--加载中样式开始-->
+<div class="loading">
+    <div class="spinner_load">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+<!--加载中样式结束-->
+</body>
+<script>
+    $(document).ready(function(){
+        linkChange('log.html',true,1,1);
+        $(document).bind("keydown",function(e){
+            e = window.event || e;
+            if(e.keyCode == 116){
+                e.keyCode = 0;
+                return false;
+            }
+        });
+    })
+</script>

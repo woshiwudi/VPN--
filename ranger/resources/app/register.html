@@ -1,0 +1,30 @@
+<div class="login_box register_all">
+    <div class="login_right register_box">
+        <h1>注册</h1>
+        <div class="input_row">
+            <span class="log_icon"></span>
+            <input id="phone" type="text" name="phone" class="input_user" placeholder="请输入手机号">
+        </div>
+        <div class="input_row code_row">
+            <span class="log_icon"></span>
+            <input id="code" type="text" name="code" class="input_user" placeholder="请输入验证码">
+            <input id="getCode" class="get_code" type="button" value="获取验证码">
+        </div>
+        <div class="input_row psd_row">
+            <span class="log_icon"></span>
+            <input id="psd" type="password" name="password" class="input_psd" placeholder="请输入密码">
+        </div>
+        <div class="input_row psd_row">
+            <span class="log_icon"></span>
+            <input id="repsd" type="password" name="rePsd" class="input_psd" placeholder="确认密码">
+        </div>
+        <div class="login_btn_box">
+            <input id="btn_register" type="button" class="btn_login" value="注册" readonly>
+        </div>
+        <div class="rem_psd_box to_login clearfix">
+            <a href="javascript:;" class="has_account" onclick="linkChange('log.html',true,1,1)">已有账号？立即登录>></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/my_validate.js"></script>
+<script type="text/javascript" src="js/register.js"></script>

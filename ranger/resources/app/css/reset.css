@@ -1,0 +1,342 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+body { background:transparent; color:#555; font-size:14px; font-family: 'Helvetica Neue','Helvetica','Arial','Hiragino Sans GB','WenQuanYi Micro Hei','Microsoft Yahei',sans-serif;}
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var,b{ font-style:normal; font-weight:normal;}
+a { text-decoration:none; }
+a:link,a:visited,a:active,a:hover { text-decoration:none; color: #353335;}
+a:focus {
+    outline: none;
+}
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px 'Helvetica Neue','Helvetica','Arial','Hiragino Sans GB','WenQuanYi Micro Hei','Microsoft Yahei',sans-serif;outline: none }
+textarea{
+    resize: none;
+}
+table { border-collapse:collapse; }
+.clearfix::after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+.bg,.link_bg{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100,100,100,0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1003;
+    display: none;
+}
+.link_bg{
+    z-index: 1001;
+    display: block;
+}
+
+.download_box{
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+.download_box .download_msg{
+    font-size: 14px;
+    line-height: 32px;
+    color: #353335;
+}
+.download_box .download_msg span{
+    font-size: 16px;
+}
+.download_box .download_msg .old_version{
+    margin-right: 20px;
+}
+.download_box .download_msg .new_version{
+    color: #ff5858;
+}
+.download_box .download_text{
+    font-size: 12px;
+    color: #353335;
+    line-height: 18px;
+    padding-top: 10px;
+}
+.download_box .download_cancel_box{
+    text-align: right;
+    padding-top: 15px;
+}
+.download_cancel_box .download_cancel{
+    height: 28px;
+    line-height: 28px;
+    margin: 5px 5px 0;
+    padding: 0 15px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+}
+progress{
+    width: 100%;
+    margin-top: 30px;
+    height: 6px;
+    border: none;
+    background-color:#d7d7d7;
+    border-radius: 3px;
+    color: #ff5858;
+}
+progress::-webkit-progress-bar
+{
+    background-color:#d7d7d7;
+    border-radius: 3px;
+}
+progress::-webkit-progress-value
+{
+    background-color: rgba(250, 99, 135, 1);
+    border-radius: 3px;
+}
+/*顶部栏*/
+.top_tab{
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #353535;
+    background-color: #F1F1F1;
+    -webkit-app-region: drag;
+}
+.top_tab>img{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+/*右上角操作样式*/
+.hide_close_box{
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    z-index: 1005;
+    -webkit-app-region: no-drag;
+}
+.hide_close_box .close_btn,.hide_close_box .hide_btn{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+}
+.hide_close_box .hide_btn:hover{
+    background-color: rgba(193,193,193,.4);
+}
+.hide_close_box .close_btn:hover{
+    background-color: rgba(255, 3, 12, 0.7);
+}
+.hide_close_box span{
+    width: 24px;
+    height:24px;
+    display: inline-block;
+    background: url("../images/hi_clo_icon.png") 0 -24px no-repeat;
+}
+.hide_close_box .close_btn>span{
+    background-position: 0 0;
+}
+.hide_close_box .close_btn:hover>span{
+    background-position: 0 -48px;
+}
+
+.layui-layer-setwin{
+    position: absolute !important;
+    right: 3px !important;
+    top: 3px !important;
+}
+.layui-layer-setwin .layui-layer-close2{
+    width: 24px !important;
+    height:24px !important;
+    display: inline-block !important;
+    position: static !important;
+    background: url("../images/hi_clo_icon.png") 0 0 no-repeat !important;
+}
+/*修复页面修复中提示*/
+.onloading{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(204, 204, 204,0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
+.spinner {
+    width: 150px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -75px;
+    margin-top: -9px;
+    z-index: 1000;
+}
+
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: rgba(250, 99, 135, 1);
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: tooldelay 1.4s infinite ease-in-out;
+    animation: tooldelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes tooldelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes tooldelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}
+
+
+
+/*加载中*/
+.loading{
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 22px;
+    margin-top: -40px;
+    display: none;
+    z-index: 20000000000000;
+}
+.spinner_load {
+    margin: 25px auto;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.container1 > div, .container2 > div, .container3 > div {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+    animation: bouncedelay 1.2s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner_load .spinner-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.container2 {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.container3 {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+}
+
+.circle1 { top: 0; left: 0; }
+.circle2 { top: 0; right: 0; }
+.circle3 { right: 0; bottom: 0; }
+.circle4 { left: 0; bottom: 0; }
+
+.container2 .circle1 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.container3 .circle1 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.container1 .circle2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.container2 .circle2 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.container3 .circle2 {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.container1 .circle3 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+.container2 .circle3 {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.container3 .circle3 {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+.container1 .circle4 {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+.container2 .circle4 {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+.container3 .circle4 {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}

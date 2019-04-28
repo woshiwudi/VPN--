@@ -1,0 +1,33 @@
+<!--问题反馈模块开始-->
+<div class="feedback_box main_item" id="tab_ques">
+    <div class="ques_content">
+        <div class="normal_ques">
+            <label>常见问题</label>
+            <button id="show_normal">展开>></button>
+        </div>
+        <div class="feedback_ques">
+            <iframe id="myIframe" name="myIframe" src="about:blank" scrolling="auto" width="100%" height="100%" frameborder=no ></iframe>
+            <!--<webview id="feedbackWeb" src="about:blank" style="width:100%; height:100%"></webview>-->
+        </div>
+        <div class="ques_input">
+            <label for="question">问题内容</label>
+            <textarea name="question" id="question" cols="30" rows="10" class="question" placeholder="请输入您反馈的问题"></textarea>
+        </div>
+        <div class="contact_box">
+            <label for="tel">联系方式</label>
+            <input type="text" id="tel" class="tel" name="tel" placeholder="请输入您的手机号">
+        </div>
+        <div class="upload_img clearfix">
+            <label>上传截图</label>
+            <form class="upload_img_box" id="myFileForm" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileUp" class="myfile" value="" accept="image/jpg,image/jpeg,image/png,image/bmp"/>
+                <img src="images/jd-shang-c.png" alt="上传截图" id="myImg">
+            </form>
+        </div>
+        <div class="submit_box">
+            <button class="submit_btn" id="quesSubmit">提交</button>
+        </div>
+    </div>
+</div>
+<!--问题反馈模块结束-->
+<script type="text/javascript" src="js/feedback.js"></script>

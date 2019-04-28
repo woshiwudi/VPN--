@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>游侠加速器</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/circlecss3.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script type="text/javascript" src="lib/jquery-1.11.1.js"></script>
+    <script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
+    <script type="text/javascript" src="lib/jquery.md5.js"></script>
+    <script type="text/javascript" src="lib/layer/layer.js"></script>
+    <script type="text/javascript" src="lib/template-web.js"></script>
+    <script type="text/javascript" src="lib/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="lib/aes.js"></script>
+    <script type="text/javascript" src="js/url.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<!--[if lt IE 9]>
+<div class="hack_tips">当前浏览器版本太低，建议您升级浏览器版本，否则无法正常查看本站内容</div>
+<![endif]-->
+<section class="index_content">
+    <div class="top_tab">
+        <img src="images/logo.png" alt="logo图片">
+        <span>游侠加速器</span>
+        <!--关闭隐藏盒子开始-->
+        <div class="hide_close_box index_btn_box clearfix">
+            <div class="hide_btn"><span></span></div>
+            <div class="close_btn"><span></span></div>
+        </div>
+        <!--关闭隐藏盒子结束-->
+    </div>
+    <!--灰色透明背景-->
+    <!--<div class="bg"></div>-->
+    <!--左边菜单栏模块开始-->
+    <div class="left_menu">
+        <!--<h1><span></span>云速加速器</h1>-->
+        <ul id="tab_ul">
+            <li class="tab_li active">
+                <a href="javascript:;" data-title="tab_link" onclick="linkChange('link.html',true,1,2)"><span></span><p>我的连接</p></a>
+            </li>
+            <li class="tab_li">
+                <a href="javascript:;" data-title="tab_nav" onclick="linkChange('navUrl.html',true,2,2)"><span></span><p>网址导航</p></a>
+            </li>
+            <li class="tab_li">
+                <a href="javascript:;" data-title="tab_ques" onclick="linkChange('feedback.html',true,3,2)"><span></span><p>问题反馈</p></a>
+            </li>
+        </ul>
+    </div>
+    <!--左边菜单栏模块结束-->
+    <!--头部导航栏模块开始-->
+    <div class="top_content">
+        <ul class="clearfix top_ul" id="top_ul">
+            <li class="account_box white_color"><a href="javascript:;" data-title="tab_person" onclick="linkChange('personal.html',true,4,2)"><span></span><div class="menuPhone"></div><div class="time_box">到期时间：<b class="menuDate"></b></div></a></li>
+            <li class="white_color" id="recharge_go"><a href="javascript:;" data-title="tab_rcg" onclick="linkChange('recharge.html',true,5,2)"><span></span><div>充值</div></a></li>
+            <li class="white_color"><a href="javascript:;" data-title="tab_msg" onclick="linkChange('message.html',true,7,2)"><span></span><div>信息</div></a></li>
+            <li class="white_color"><a href="javascript:;" data-title="tab_tool" onclick="linkChange('tool.html',true,9,2)"><span></span><div>工具</div></a></li>
+            <li class="white_color"><a href="javascript:;" data-title="tab_set" onclick="linkChange('setting.html',true,8,2)"><span></span><div>关于</div></a></li>
+            <li class="white_color"><a href="javascript:;" data-title="tab_wall" onclick="linkChange('wallet.html',true,15,2)"><span></span><div>钱包</div></a></li>
+        </ul>
+    </div>
+    <!--头部导航栏模块结束-->
+    <!--主内容区开始-->
+    <div class="main_content_box" id="tab_content">
+
+    </div>
+    <!--主内容区结束-->
+</section>
+<div id="pay_card_box" style="width:100%; height:100%;display: none;"><webview id="rechargePay" src="about:blank" style="width:100%; height:100%" style="overflow: auto;"></webview></div>
+<div id="wallet_rcg_box" style="width:100%; height:100%;display: none;"><webview id="wallet_pay_box" src="about:blank" style="width:100%; height:100%" style="overflow: auto;" preload="js/confirm.js"></webview></div>
+<!--<div id="wallet_coupon_box" style="width:100%; height:100%;display: none;"><webview id="coupon_box" src="about:blank" style="width:100%; height:100%" style="overflow: auto;" preload="js/confirm.js"></webview></div>-->
+<!--专线列表模块开始-->
+<div class="line_list_content" id="line_list_content">
+    <ul class="line_list" id="line_list">
+
+    </ul>
+</div>
+<!--专线列表模块结束-->
+<!--加载中样式开始-->
+<div class="loading">
+    <div class="spinner_load">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+<!--加载中样式结束-->
+<script id="line_list_template" type="text/html">
+    <% for(var i=data.length-1;i>=0;i--) {%>
+    <li class="line_item <% if(data[i].id==id){%>active<%}%>" data-id="<%=data[i].id%>" data-ip="<%=data[i].ip%>">
+        <% if(data[i].flag_name=="hk") {%>
+        <img src="images/hongkong@3x.png" alt="专线图标">
+        <%} else if(data[i].flag_name=="jp") {%>
+        <img src="images/japan@3x.png" alt="专线图标">
+        <%} else if(data[i].flag_name=="kp") {%>
+        <img src="images/south%20korea@3x.png" alt="专线图标">
+        <%} else if(data[i].flag_name=="usa") {%>
+        <img src="images/usa@3x.png" alt="专线图标">
+        <%} else {%>
+        <img src="images/china@3x.png" alt="专线图标">
+        <%}%>
+        <span><%=data[i].name%></span><span class="time"></span></li>
+    <%}%>
+</script>
+</body>
+<script>
+    var pathname = window.document.location.pathname;
+    function linkChange(url,addEntry,id,type){
+        $.ajax({
+            type:'GET',
+            url:url,
+            async:false,
+            success:function(data){
+                //console.log(data);
+                if(type==1){
+                    $(".login_register_box").html(data);
+                }else {
+                    $("#tab_content").html(data);
+                }
+            }
+        });
+        var state = new Object();
+        state.id = id;
+        if(addEntry == true){
+            history.pushState(state,null,url);
+        }
+    }
+    window.addEventListener("popstate",function(e){
+        if(location.pathname!=pathname&& e.state!=null){
+            linkChange(location.pathname,false, e.state.id);
+        }else {
+            $("#tab_content").html('');
+        }
+    },false);
+    $(document).ready(function(){
+        ipcRenderer.on('quit-message', function (event, arg) {
+            localStorage.link = 0;
+            localStorage.getLinetime=0;
+        });
+        ipcRenderer.on('has-start', function (event, arg) {
+            //console.log(arg);
+            if((localStorage.link==0||localStorage.link==undefined)&&arg=='start'){
+                linkState=1;
+                localStorage.link=1;
+                $(".load_circle").animate(3000).removeClass("load_animate");
+                localStorage.link=1;
+            }
+            if(arg!='start'){
+                linkState=1;
+                localStorage.link=0;
+                $(".link_btn").addClass("no_link_btn");
+                //$(".account_box").removeClass("active");
+                $(".link_bg").show();
+                //移除连接按钮动画
+                $(".load_circle").removeClass("load_animate");
+            }
+        });
+        var walletwebview = document.getElementById('wallet_pay_box');
+        walletwebview.addEventListener('ipc-message', function(event) { //ipc-message监听，被webview加载页面传来的信息
+            toPayWallet(event.channel);
+            //console.log(event.channel);
+        });
+        getupdate();
+        let userid = storage.getItem('rangerUserid');
+        if(userid=='' || userid==undefined){
+            goToLogin()
+        }else {
+            goToIndex();
+        }
+        $(document).bind("keydown",function(e){
+           e = window.event || e;
+            if(e.keyCode == 116){
+                e.keyCode = 0;
+                return false;
+            }
+        });
+        //修改滚动条
+        $("#line_list").niceScroll({
+            cursorcolor: "#ddd",//#CC0071 光标颜色
+            cursoropacitymax:0, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+            touchbehavior: false, //使光标拖动滚动像在台式电脑触摸设备
+            cursorwidth: "3px", //像素光标的宽度
+            cursorborder: "0", // 游标边框css定义
+            cursorborderradius: "5px",//以像素为光标边界半径
+            autohidemode: 'scroll' //是否隐藏滚动条
+        });
+    });
+</script>
